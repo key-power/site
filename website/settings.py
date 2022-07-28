@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'asqfsf54-insecure-)yl5ixlhp(epjkku)_d5&ud4_66wa_ka5orooj4!9h^7#b%n#2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','kpwer.herokuapp.com','k-power.ml']
 
