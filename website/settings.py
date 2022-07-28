@@ -25,7 +25,7 @@ SECRET_KEY = 'asqfsf54-insecure-)yl5ixlhp(epjkku)_d5&ud4_66wa_ka5orooj4!9h^7#b%n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','k-power.ml']
+ALLOWED_HOSTS = ['127.0.0.1','kpwer.herokuapp.com','k-power.ml']
 
 
 # Application definition
