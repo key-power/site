@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+        {% block title %} Bzquatre {% endblock title %}   
+        {% block content %}
+   
+            <!-- Begin Services -->
+            <section id="services-section" class="page text-center">
+                <!-- Begin page header-->
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                            <h2>Services</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">what we really know how</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End page header-->
+            
+                <!-- Begin roatet box-2 -->
+                <div class="rotate-box-2-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            {% for item in services %}
+                                <div class="col-md-3 col-sm-6">
+                                    <a href={% url 'prices' service=item.id %}   class="rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0">
+                                        <span class="rotate-box-icon">{{ item.icon|safe }}</span>
+                                        <div class="rotate-box-info">
+                                            <h4>{{item.title}}</h4>
+                                            <p>{{item.content}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div> <!-- /.row -->
+                    </div> <!-- /.container -->
+                    <!-- Cta Button -->
+                    <!--
+                    <div class="container">
+                        
+                        <div class="extra-space-l"></div>
+                        <div class="text-center">
+                    		<a class="btn btn-default btn-lg-xl" href="http://www.imransdesign.com/" target="_blank" role="button">Large Button</a>
+                        </div>
+                    </div>
+                    --> <!-- /.container -->                       
+                </div>
+                <!-- End rotate-box-2 -->
+            </section>
+            <!-- End Services -->
+              
+            {% endblock content %} 

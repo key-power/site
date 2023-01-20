@@ -17,5 +17,11 @@ Including another URLconf
 from django.urls import path
 from. import views
 urlpatterns = [
-    path('', views.homme, name='home')
+    path('', views.homme, name='home'),
+    path('contact/', views.contact, name='contact'),
+    path('about/', views.about, name='about'),
+    path('works/', views.works, name='works'),
+    path('services/', views.services, name='services'),
+    path('subscribe/', views.subscribe, name='subscribe'),
+    path("services/<int:service>", views.prices,name='prices'),
 ]

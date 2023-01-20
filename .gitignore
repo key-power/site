@@ -1,2 +1,4 @@
 venv
+website/.env
 unika-html
+db.sqlite3

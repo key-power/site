@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+        {% block title %} Bzquatre {% endblock title %}   
+        {% block content %}
+        
+            <!-- Begin Portfolio -->
+            <section id="portfolio-section" class="page bg-style1">
+            	<div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portfolio">
+                                <!-- Begin page header-->
+                                <div class="page-header-wrapper">
+                                    <div class="container">
+                                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                                            <h2>Our Works</h2>
+                                            <div class="devider"></div>
+                                            <p class="subtitle">What we are proud of</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End page header-->
+                                <div class="portfoloi_content_area" >
+                                    <div class="portfolio_menu" id="filters">
+                                        <ul>
+                                            <li class="active_prot_menu"><a href="#porfolio_menu" data-filter="*">all</a></li>
+                                            {%for iteem in typeworks%}
+                                            <li><a href="#porfolio_menu" data-filter=".{{iteem}}">{{iteem}}</a></li>
+                                            {%endfor%}
+                                        </ul>
+                                    </div>
+                                    <div class="portfolio_content">
+                                        <div class="row"  id="portfolio">
+                                            {%for iteem in works%}
+                                            <div class="col-xs-12 col-sm-4 {{iteem.type}}">
+                                                <div class="portfolio_single_content">
+                                                    <img src="{{iteem.photo.url}}" alt="{{iteem.title}}"/>
+                                                    <div>
+                                                        <a href="#">{{iteem.title}}</a>
+                                                        <span>{{iteem.subtitle}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {%endfor%}
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End portfolio -->
+            
+            
+            {% endblock content %} 

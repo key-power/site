@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+        {% block title %} Bzquatre {% endblock title %}   
+        {% block content %}
+        
+            <!-- Begin about section -->
+			<section id="about-section" class="page bg-style1">
+                <!-- Begin page header-->
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInUp" data-wow-delay="0.3s">
+                            <h2>About</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">little information</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End page header-->
+
+                <!-- Begin rotate box-1 -->
+                <div class="rotate-box-1-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0">
+                                    <span class="rotate-box-icon"><i class="fa fa-users"></i></span>
+                                    <div class="rotate-box-info">
+                                        <h4>Who We Are?</h4>
+                                        <p>{{settings.whoweare}}</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.2s">
+                                    <span class="rotate-box-icon"><i class="fa fa-diamond"></i></span>
+                                    <div class="rotate-box-info">
+                                        <h4>What We Do?</h4>
+                                        <p>{{settings.whatwedo}}</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.4s">
+                                    <span class="rotate-box-icon"><i class="fa fa-heart"></i></span>
+                                    <div class="rotate-box-info">
+                                        <h4>Why We Do It?</h4>
+                                        <p>{{settings.whywedoit}}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#" class="rotate-box-1 square-icon wow zoomIn" data-wow-delay="0.6s">
+                                    <span class="rotate-box-icon"><i class="fa fa-clock-o"></i></span>
+                                    <div class="rotate-box-info">
+                                        <h4>Since When?</h4>
+                                        <p>{{settings.sincewhen}}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                        </div> <!-- /.row -->
+                    </div> <!-- /.container -->
+                </div>
+                <!-- End rotate box-1 -->
+                
+                <div class="extra-space-l"></div>
+                
+                <!-- Begin page header--> 
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInUp" data-wow-delay="0.3s">
+                            <h4>Our Skills</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- End page header-->
+                
+                <!-- Begin Our Skills -->
+                <div class="our-skills">
+                	<div class="container">
+                    	<div class="row">
+                            {%for iteem in skills%}
+                            <div class="col-sm-6">
+                                <div class="skill-bar wow slideInLeft" data-wow-delay="0.2s">
+                                    <div class="progress-lebel">
+                                        <h6>{{iteem.title}}</h6>
+                                    </div>
+                                    <div class="progress">
+                                      <div class="progress-bar" role="progressbar" aria-valuenow="{{iteem.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{iteem.progress}}%;">
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        
+                        </div> <!-- /.row -->
+                    </div> <!-- /.container -->
+                </div>
+                <!-- End Our Skill -->
+          </section>
+          <!-- End about section -->
+
+            <!-- Begin team-->
+            <section id="team-section" class="page">
+                <!-- Begin page header-->
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                            <h2>Our Team</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">Meat our experts</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End page header-->
+                <div class="container">
+                    <div class="row">
+                        <div class="team-items">
+                            {% for iteem in team %}
+                            <div class="col-md-2">
+                                <div class="team-container wow bounceIn" data-wow-delay="0.2s">
+                                    <div class="team-item">
+                                        <div class="team-triangle">
+                                            <div class="content">
+                                                <img src="{{ iteem.photo.url }}" alt="{{iteem.name}}"/>
+                                                <div class="team-hover text-center">
+                                                    {% if iteem.genre == "MAN" %}
+                                                    <i class="fa fa-male"></i>
+                                                    {% else %}
+                                                    <i class="fa fa-female"></i>
+                                                    {% endif %}
+                                                    <p>{{iteem.name}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <div class="clearfix"></div>
+                        </div>  
+                    </div>
+                </div>
+
+            </section>
+            <!-- End team-->
+        
+           
+            {% endblock content %} 

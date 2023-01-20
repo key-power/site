@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+        {% block title %} Bzquatre {% endblock title %}   
+        {% block content %}
+        	
+            
+                
+                
+                
+            <!-- Begin prices section -->
+			<section id="prices-section" class="page">
+
+                <!-- Begin page header-->
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                            <h2>Prices</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">That how much</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End page header-->
+
+				<div class="extra-space-l"></div>
+
+				<!-- Begin prices -->
+				<div class="prices">
+					<div class="container">
+						<div class="row">
+							{% for item in prices %}
+                                <div class="price-box col-sm-6 {% if item.popular%}price-box-featured{% endif %} col-md-3 wow flipInY" data-wow-delay="0.{{ forloop.counter0|add:"+3" }}s">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading text-center">
+                                            <i class="fa fa-star fa-2x"></i>
+                                            <h3>{{item.title}}</h3>
+                                        </div>
+                                        <div class="panel-body text-center">
+                                            <p class="lead"><strong>${{item.money}}</strong></p>
+                                        </div>
+                                        <ul class="list-group text-center">
+                                            {% for i in item.characteristic.all %}
+                                                <li class="list-group-item">{{i.characteristic}}</li>
+                                            {% endfor %}
+                                        </ul>
+                                        <div class="panel-footer text-center">
+                                            <a class="btn btn-default" href="#">Order Now!</a>
+                                        </div>
+                                        {% if item.popular%}<div class="price-box-ribbon"><strong>Popular</strong></div>{% endif %} 
+                                        
+                                    </div>										
+                                </div>
+							{% endfor %}							
+						</div> <!-- /.row -->
+					</div> <!-- /.container -->
+				</div>
+				<!-- End prices -->
+				<div class="extra-space-l"></div>
+			</section>
+			<!-- End prices section -->
+                
+                
+            {% endblock content %} 

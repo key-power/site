@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
+env=environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'asqfsf54-insecure-)yl5ixlhp(epjkku)_d5&ud4_66wa_ka5orooj4!9h^7#b%n#2'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = bool(env('DEBUG'))
 
-ALLOWED_HOSTS = ['127.0.0.1','kpwer.herokuapp.com','k-power.ml']
+ALLOWED_HOSTS = ['127.0.0.1','*']
 
 
 # Application definition
@@ -117,18 +120,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
-MEDIA_ROOT= BASE_DIR / 'media'
-if DEBUG:
-  STATICFILES_DIRS= [ 
-    BASE_DIR / 'static/',
-    BASE_DIR / 'media/',
-    ]
-else:
-  STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_ROOT= BASE_DIR / "media/"
+STATICFILES_DIRS= [ 
+BASE_DIR / 'static/',
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"  
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')  # new
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # new
+EMAIL_PORT = int(env('EMAIL_PORT'))  # new
+EMAIL_USE_TLS =bool(env('EMAIL_USE_TLS'))  # new
